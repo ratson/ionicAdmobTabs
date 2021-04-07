@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { AdMobPlus, RewardedAd } from '@admob-plus/capacitor';
+import { AdmobService} from '../services/admob.service';
 
 @Component({
   selector: 'app-tab3',
@@ -9,22 +8,11 @@ import { AdMobPlus, RewardedAd } from '@admob-plus/capacitor';
 })
 export class Tab3Page {
 
-  constructor(private platform: Platform) { 
-    this.initializeApp();
-  }
-
-  rewarded = new RewardedAd({
-    adUnitId: 'ca-app-pub-3940256099942544/5224354917'
-  });
-
-  private async initializeApp() {
-    await this.platform.ready();
-    await AdMobPlus.start();
-  }
+  constructor(private ads: AdmobService) {}
 
   private async showRewarded(){
-    await this.rewarded.load();
-    await this.rewarded.show();
+    await this.ads.rewarded.load();
+    await this.ads.rewarded.show();
   }
 
 }
