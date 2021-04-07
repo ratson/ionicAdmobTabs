@@ -23,11 +23,11 @@ export class Tab1Page {
   }
 
   private async showBanner(){
-    this.banner.show();
+    await this.banner.show();
   }
 
   private async hideBanner(){
-    this.banner.hide();
+    await this.banner.hide();
   }
 
 }
