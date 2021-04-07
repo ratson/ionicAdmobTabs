@@ -1,17 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Admob Banner
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="container">
+    <ion-button color="primary" expand="full" (click)="showBanner()">show banner</ion-button>
+    <ion-button color="secondary" expand="full" (click)="hideBanner()">hide banner</ion-button>
+  </div>
 </ion-content>

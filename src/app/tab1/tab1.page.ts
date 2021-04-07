@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { AdMobPlus, BannerAd } from '@admob-plus/capacitor';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,25 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private platform: Platform) { 
+    this.initializeApp();
+  }
+
+  banner = new BannerAd({
+    adUnitId: 'ca-app-pub-3940256099942544/6300978111'
+  });
+
+  private async initializeApp() {
+    await this.platform.ready();
+    await AdMobPlus.start();
+  }
+
+  private async showBanner(){
+    this.banner.show();
+  }
+
+  private async hideBanner(){
+    this.banner.hide();
+  }
 
 }
